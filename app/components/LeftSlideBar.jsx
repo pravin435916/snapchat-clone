@@ -5,11 +5,21 @@ import { CiSearch } from 'react-icons/ci'
 import { AiOutlineLogout } from 'react-icons/ai'
 import {Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { signOut, useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 
 function LeftSlideBar() {
     const { data: session } = useSession();
+    const router = useRouter()
+    const LogoutHandler = async () => {
+      try {
+        await signOut({ callbackUrl: '/login' })
+      } catch (error) {
+        console.log(error);
+        throw error;
+      }
+    }
   return (
-    <div className="relative w-[26vw] m-2 border-solid border-black border shadow-md rounded-lg p-2">
+    <div className="relative w-[28vw] m-2 border-solid border-black border shadow-md rounded-lg p-2">
     <header className="flex items-center justify-between px-4 py-2 rounded-lg bg-gray-100">
       <div className='flex gap-4 items-center'>
         <Avatar>
@@ -19,7 +29,7 @@ function LeftSlideBar() {
         <h1 className="text-xl font-bold">{session?.user.name}</h1>
       </div>
       <div className='flex items-center justify-center w-10 h-10 rounded-full p-2 bg-black cursor-pointer'>
-        <AiOutlineLogout className=" text-2xl   text-white" onClick={()=> signOut()} />
+        <AiOutlineLogout className=" text-2xl   text-white" onClick={LogoutHandler} />
       </div>
     </header>
     <hr />

@@ -7,16 +7,15 @@ import { Navbar } from "./components/Navbar";
 export default function Component() {
   const router = useRouter();
   const { data: session } = useSession('')
-  // if(!session) {
-  //   router.push('/login')
-  // }
+  if(!session) {
+    router.push('/login')
+  }
   return (
     <>
     <Navbar/>
     <Home/>
       {/* {
         session && (
-          // <Users/>
           <Home/>
         )
       } */}
