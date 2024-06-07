@@ -4,7 +4,6 @@ import axios from "axios";
 import { MdCheckBoxOutlineBlank } from "react-icons/md";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-
 function Users() {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(false); // Track loading state

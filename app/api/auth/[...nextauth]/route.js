@@ -69,6 +69,26 @@ const handler = NextAuth({
       }
       return false;
     },
+    async session({ session, token }) {
+      try {
+        await ConnectDb();
+        if(session.user) {
+            const user = await User.findOne({email:session.user.email});
+            if(user) {
+              session.user._id = user._id;
+              return session;
+            }else{
+              console.log('user not found');
+            }
+        }else{
+          console.log('Invalid session');
+        }
+        
+      } catch (error) {
+        console.log(error);
+        throw error;
+      }
+    },
   },
 });
 

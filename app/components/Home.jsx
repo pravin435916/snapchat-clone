@@ -6,6 +6,7 @@ import React from 'react'
 
 function Home() {
   const {data : session} = useSession('')
+  console.log(session)
   return (
     <div className='bg-yellow-400 flex w-full h-[90vh] gap-20 items-center justify-center'>
       <div className='w-[30%] flex flex-col gap-2'>

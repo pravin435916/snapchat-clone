@@ -9,7 +9,6 @@ import { useRouter } from 'next/navigation'
 
 function LeftSlideBar() {
     const { data: session } = useSession();
-    const router = useRouter()
     const LogoutHandler = async () => {
       try {
         await signOut({ callbackUrl: '/login' })

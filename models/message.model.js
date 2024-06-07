@@ -1,10 +1,10 @@
-import mongoose,{Schema} from "mongoose"
+import mongoose from "mongoose"
 const messageModel = new mongoose.Schema({
     senderId:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'User'
     },
-    recieverId:{
+    receiverId:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'User'
     },
@@ -18,4 +18,5 @@ const messageModel = new mongoose.Schema({
         enum:['text','image']
     }
 },{timestamps:true})
-export const Message = mongoose.model('Message',messageModel);
+// export const Message = mongoose.model('Message',messageModel);
+export const Message = mongoose.models.Message || mongoose.model('Message', messageModel);
