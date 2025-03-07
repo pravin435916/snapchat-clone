@@ -52,3 +52,36 @@ export const FetchMessages = async (senderId, receiverId) => {
     throw error; // Re-throw the error for handling in the calling function
   }
 };
+
+
+export const ClearChat = async (senderId, receiverId) => {
+  try {
+    await ConnectDb();
+
+    // Find the chat between the users
+    const chat = await Chat.findOne({
+      participants: { $all: [senderId, receiverId] },
+    });
+
+    if (!chat) {
+      throw new Error("Chat not found");
+    }
+
+    // Delete all messages related to the chat
+    await Message.deleteMany({
+      $or: [
+        { senderId, receiverId },
+        { senderId: receiverId, receiverId: senderId },
+      ],
+    });
+
+    // Clear the messages array in the chat document
+    chat.messages = [];
+    await chat.save();
+
+    return { success: true, message: "Chat cleared successfully" };
+  } catch (error) {
+    console.error("Error clearing chat:", error);
+    throw error;
+  }
+};

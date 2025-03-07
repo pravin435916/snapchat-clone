@@ -1,4 +1,4 @@
-@tailwind base;
+  @tailwind base;
   @tailwind components;
   @tailwind utilities;
 
@@ -65,6 +65,28 @@
       --ring: 212.7 26.8% 83.9%;
     }
   }
+  .filter-grayscale { filter: grayscale(100%); }
+.filter-sepia { filter: sepia(100%); }
+.filter-blur { filter: blur(5px); }
+.filter-brightness { filter: brightness(0.5); }
+.filter-contrast { filter: contrast(200%); }
+.filter-hue-rotate { filter: hue-rotate(90deg); }
+.filter-saturate { filter: saturate(8); }
+.filter-invert { filter: invert(100%); }
+.filter-opacity { filter: opacity(50%); }
+.filter-drop-shadow { filter: drop-shadow(16px 16px 20px blue); }
+.bg-background { background-color: hsl(var(--background)); }
+.text-foreground { color: hsl(var(--foreground)); }
+.border-border { border-color: hsl(var(--border)); }
+.border-primary { border-color: hsl(var(--primary)); }
+.border-secondary { border-color: hsl(var(--secondary)); }
+.border-muted { border-color: hsl(var(--muted)); }
+.border-accent { border-color: hsl(var(--accent)); }
+.border-destructive { border-color: hsl(var(--destructive)); }
+.border-input { border-color: hsl(var(--input)); }
+.border-ring { border-color: hsl(var(--ring)); }
+.border-opacity-0 { border-color: hsla(var(--border), 0); }
+.border-opacity-10 { border-color: hsla(var(--border), 0.1); }
 
   @layer base {
     * {
