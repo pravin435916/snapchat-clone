@@ -17,7 +17,7 @@ export default function Login() {
     if (session) {
       router.push("/"); // Redirect to home page if logged in
     }
-  }, [session]); // Run only when session changes
+  }, [session,router]); // Run only when session changes
 
   const handleSignIn = async (provider) => {
     try {

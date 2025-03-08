@@ -19,7 +19,7 @@ function Home() {
         }
       </div>
       <div className=''>
-        <Image src='/assets/child.png' width={300} height={300} className='w-full h-full' />
+        <Image src='/assets/child.png' width={300} height={300} alt='child image' className='w-full h-full' />
       </div>
     </div>
   )

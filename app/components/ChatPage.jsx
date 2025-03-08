@@ -29,6 +29,10 @@ function ChatPage({ userProfile }) {
         };
 
         getMessages();
+
+        const interval = setInterval(getMessages, 5000);
+
+        return () => clearInterval(interval);
     }, [senderId, receiverId]);
     const handleCapture = async (imageSrc) => {
         setIsCameraOpen(false); // Close camera
