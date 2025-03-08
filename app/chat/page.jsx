@@ -1,9 +1,6 @@
 'use client'
-
-import { useSession } from 'next-auth/react'
 import { AiOutlineCamera } from 'react-icons/ai'
 function page() {
-  const {data : session} = useSession();
   return (
     <div className="snapchat-camera  bg-gray-200 mx-auto flex flex-grow justify-center items-center  mb-4 ">
           {/* <Image src={dog} width={100} height={100} className='w-full h-full object-fill'/> */}
